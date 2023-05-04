@@ -36,7 +36,7 @@ app.use('/api/users', usersRoute);
 app.use('/api/videos', videoRouter);
 app.use('/api/comments', commentRouter);
 app.use('/', (req,res) => {
-  res.send('server running')
+  res.send('welcome to litetube server!')
 })
 
 //error handling middlewere
