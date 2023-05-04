@@ -10,6 +10,7 @@ import { commentRouter } from './routes/commentsRoute.js';
 
 const app = express();
 dotenv.config();
+const PORT = process.env.PORT
 
 const connect = async () => {
   try {
@@ -49,9 +50,15 @@ app.use((err, req, res, next) => {
    });
 });
 
-app.listen(4000, () => {
-   connect();
-   console.log('connected port 4000');
-});
+if (PORT) {
+  app.listen(PORT, () => {
+    connect();
+    console.log(`Server Connected on port ${PORT}`);
+  });
+}else{
+  connect();
+}
+
+
 
 
